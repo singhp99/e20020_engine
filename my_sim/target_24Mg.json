@@ -1,0 +1,7 @@
+{
+    "components": [
+        [[6, 12, 4],[1,1,10]]
+    ],
+    "volume_fractions": [1.0],
+    "pressure(Torr)": 60.0
+}
