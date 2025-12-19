@@ -21,7 +21,7 @@ print(type(target))
 if not isinstance(target, GasMixtureTarget):
     raise Exception(f"Could not load target data from {target_path}!")
 
-nevents = 10000
+nevents = 80000
 
 beam_energy = 60 # MeV
 
@@ -29,15 +29,19 @@ pipeline = KinematicsPipeline(
     [
         Reaction(
             target=nuclear_map.get_data(6, 12), # 12C
-            projectile=nuclear_map.get_data(6, 12), # 24Mg
+            projectile=nuclear_map.get_data(6, 12), # 12C
             ejectile=nuclear_map.get_data(2, 4), # alpha
+        ),
+        Decay(
+            parent=nuclear_map.get_data(10,20), #20Ne
+            residual_1=nuclear_map.get_data(1,1),
         ),
     ], #add a 20Ne -> p decay now 
 
-    [ExcitationGaussian(20, 0.001)], # No width to ground state #need to add energues above threhold  make the width super narrow
+    [ExcitationGaussian(30, 0.001), ExcitationGaussian(15, 0.001)], # No width to ground state #need to add energues above threhold  make the width super narrow
     #[ExcitationGaussian(0, 0.001)],
 
-    [PolarUniform(0.0, np.pi)], # Full angular range 0 deg to 180 deg
+    [PolarUniform(0.0, np.pi), PolarUniform(0.0, np.pi)], # Full angular range 0 deg to 180 deg
     #[PolarUniform(0.0, np.pi)],
     
     beam_energy=60, # MeV

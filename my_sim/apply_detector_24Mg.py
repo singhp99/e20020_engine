@@ -12,7 +12,7 @@ from spyral_utils.nuclear.target import load_target, GasTarget, GasMixtureTarget
 from pathlib import Path
 
 input_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/mg24_60Torr_161.6MeV_15MeV.h5")
-output_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/detector_123_tracks")
+output_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/detector_456_tracks")
 
 
 target_path = Path("./target_24Mg.json")
@@ -29,9 +29,9 @@ detector = DetectorParams(
     bfield=0,
     mpgd_gain=175000,
     gas_target=gas,
-    diffusion=0.070, #changed this from 0.077
-    fano_factor=0.2,
-    w_value=34.0,
+    diffusion=0.01, #changed this from 0.077
+    fano_factor=0.25,
+    w_value=25.1,
 )
 
 electronics = ElectronicsParams(
