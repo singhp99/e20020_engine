@@ -208,3 +208,6 @@ __marimo__/
 #h5py files created by marimo
 *.h5
 *.parquet
+.DS_Store
+.DS_Store
+.DS_Store

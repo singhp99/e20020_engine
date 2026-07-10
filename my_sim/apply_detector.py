@@ -11,8 +11,8 @@ from attpc_engine import nuclear_map
 from spyral_utils.nuclear.target import load_target, GasTarget
 from pathlib import Path
 
-input_path = Path("./output/kinematics/o16a4a_700Torr_161.6MeV_15MeV.h5")
-output_path = Path("/Volumes/researchEXT/spyral_eng/my_sim/output/kinematics/detector/resonan_more data")
+input_path = Path("./output_16O_invariant/kinematics/o16a4a_700Torr_161.6MeV_targetalpha.h5")
+output_path = Path("./output_16O_invariant/data/just_target/")
 
 
 target_path = Path("./target.json")

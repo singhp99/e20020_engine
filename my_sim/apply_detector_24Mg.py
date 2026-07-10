@@ -11,11 +11,11 @@ from attpc_engine import nuclear_map
 from spyral_utils.nuclear.target import load_target, GasTarget, GasMixtureTarget
 from pathlib import Path
 
-input_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/mg24_60Torr_161.6MeV_15MeV.h5")
-output_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/detector_456_tracks")
+input_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/mg24_60Torr_60MeV_123.h5")
+output_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/longer_tracks_123")
 
 
-target_path = Path("./target_24Mg.json")
+target_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/target_24Mg.json")
 
 gas = load_target(target_path, nuclear_map)
 # Check that our target loaded...

@@ -12,8 +12,9 @@ from spyral_utils.nuclear.target import load_target, GasTarget,GasMixtureTarget
 from pathlib import Path
 import numpy as np
 
-output_path = Path("./output/kinematics/mg24_60Torr_161.6MeV_15MeV.h5")
-target_path = Path("./target_24Mg.json")
+
+output_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/output/kinematics/mg24_60Torr_60MeV_456.h5")
+target_path = Path("/Users/pranjalsingh/Desktop/research_space_engine/e20020_engine/my_sim/target_24Mg.json")
 
 target = load_target(target_path, nuclear_map)
 print(type(target))
@@ -22,8 +23,7 @@ if not isinstance(target, GasMixtureTarget):
     raise Exception(f"Could not load target data from {target_path}!")
 
 nevents = 80000
-
-beam_energy = 60 # MeV
+beam_energy = 74 # MeV
 
 pipeline = KinematicsPipeline(
     [
@@ -51,13 +51,13 @@ pipeline = KinematicsPipeline(
 
     ], 
 
-    [ExcitationGaussian(25.80, 0.001),ExcitationGaussian(18.282, 0.001),ExcitationGaussian(10.847, 0.001),ExcitationGaussian(1.03, 0.001),ExcitationGaussian(0.0, 0.001)], # No width to ground state #need to add energues above threhold  make the width super narrow
+    [ExcitationGaussian(40, 0.001),ExcitationGaussian(35, 0.001),ExcitationGaussian(27, 0.001),ExcitationGaussian(19, 0.001),ExcitationGaussian(15, 0.001)], # No width to ground state #need to add energues above threhold  make the width super narrow
     #[ExcitationGaussian(0, 0.001)],
 
     [PolarUniform(0.0, np.pi),PolarUniform(0.0, np.pi),PolarUniform(0.0, np.pi),PolarUniform(0.0, np.pi),PolarUniform(0.0, np.pi)], # Full angular range 0 deg to 180 deg
     #[PolarUniform(0.0, np.pi)],
     
-    beam_energy=60, # MeV
+    beam_energy=74, # MeV
     target_material=KinematicsTargetMaterial(
         material=target, z_range=(0.0, 1.0), rho_sigma=0.007
     ),
